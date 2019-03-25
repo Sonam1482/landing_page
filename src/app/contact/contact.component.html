@@ -1,0 +1,45 @@
+<div class="contact" id="abc">
+    <mat-form-field>
+        <input matInput placeholder="Name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="SurName">
+  </mat-form-field>
+    <mat-form-field>
+        <mat-label>Country</mat-label>
+        <mat-select #countryDropdown (selectionChange)="changeCountry(countryDropdown)">
+            <mat-option
+                *ngFor="let country of countries"
+                [value]="{ name: country.name, code: country.callingCodes[0], flags: country.flag[0].url, currency: country.currencies[0].symbol, time: country.timezones[0] }"
+            >{{ country.name }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="State">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="City">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Phone">
+        <span *ngIf="phonePrefix" matPrefix>+{{ phonePrefix }} &nbsp;</span>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email">
+   </mat-form-field>
+   <mat-form-field>
+    <input matInput placeholder="Flag">
+    <span *ngIf="flagPrefix" matPrefix>{{ flagPrefix }}</span>
+    <!-- <span ng-repeat="country in countries| filter: {flag: country.name}"></span> -->
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Currency">
+    <span *ngIf="currencyPrefix" matPrefix>{{ currencyPrefix }}</span>
+</mat-form-field>
+<mat-form-field>
+  <input matInput placeholder="Time Zone">
+  <span *ngIf="timePrefix" matPrefix>{{ timePrefix }}</span>
+</mat-form-field>
+
+    <button mat-raised-button type="submit" type="submit" >Submit</button>
+</div>

@@ -1,0 +1,10 @@
+.contact {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding: 25px;
+    position: absolute;
+    top: 40px;
+    right: 50px;
+}
